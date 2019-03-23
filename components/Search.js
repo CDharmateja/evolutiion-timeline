@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Link from 'next/link'
 
 function Search() {
   // eslint-disable-next-line no-unused-vars
@@ -17,7 +18,9 @@ function Search() {
           {speciesOptions}
         </datalist>
       </div>
-      <button>Check timeline</button>
+      <Link href={`/timeline?name=${'Dog'}`}>
+        <button>Check timeline</button>
+      </Link>
     </>
   )
 }
