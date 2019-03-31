@@ -1,16 +1,13 @@
 import React from 'react'
 
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 import Search from '../components/Search'
 
 function Index() {
   return (
-    <>
-      <Header />
-      <main>
-        <Search />
-      </main>
-    </>
+    <Layout>
+      <Search />
+    </Layout>
   )
 }
 

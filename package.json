@@ -1,5 +1,5 @@
 {
-  "name": "hack",
+  "name": "evolution-timeline",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,8 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-plugin-inline-import": "^3.0.0",
     "idb": "^4.0.0",
     "next": "^8.0.3",
+    "next-images": "^1.1.1",
+    "prop-types": "^15.7.2",
+    "rc-slider": "^8.6.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
