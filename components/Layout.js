@@ -4,6 +4,7 @@ import Head from 'next/head'
 
 import Header from './Header'
 import rcStyle from 'rc-slider/assets/index.css'
+import DNAImage from '../images/dna1.jpg'
 
 const Layout = props => (
   <div className='layout-container'>
@@ -26,8 +27,9 @@ const Layout = props => (
   </div>
 )
 
+// TODO:
 Layout.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.any,
 }
 
 export default Layout
