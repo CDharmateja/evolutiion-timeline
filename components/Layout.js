@@ -16,8 +16,6 @@ const Layout = props => (
       <style>
         {rcStyle}
       </style>
-      {/* <script src="/static/registerSw.js"></script>
-      <script src="/static/sw.js"></script> */}
     </Head>
 
     <Header/>
@@ -29,15 +27,20 @@ const Layout = props => (
       body {
         margin: 0;
         font-size: 18px;
+        background-color: #EDEDEB;
       }
       main {
         padding: 20px;
+      }
+      ul li {
+        padding-left: 15px;
+        margin: 10px;
+        background-color: white !important;
       }
     `}</style>
   </div>
 )
 
-// TODO:
 Layout.propTypes = {
   children: PropTypes.any,
 }

@@ -14,7 +14,7 @@ const Timeline = withRouter(props => {
 
   list = list.map(species => 
     <li key={species.name}>
-      <h2>{species.name}</h2>
+      <h3>{species.name}</h3>
       <p>{`Age: ${species['age_mya']}`}</p>
     </li>)
 
@@ -30,8 +30,10 @@ const Timeline = withRouter(props => {
           flex-direction: column;
           list-style: none;
         }
+
         li {
-          // list-style: none;
+          // color: red;
+          // background-color: white;
         }
       `}</style>
     </Layout>

@@ -56,7 +56,7 @@ function Search() {
       <div className="button">
         <button onSubmit={handleSubmit}>Check timeline</button>
       </div>
-      <div>
+      <div className="error">
         {errorMsg}
       </div>
       <style jsx>{`
@@ -84,6 +84,13 @@ function Search() {
           padding: 10px;
           margin-top: 10px;
           font-size: 16px;
+          background-color: green;
+          color: white;
+          border: 0;
+        }
+
+        .error {
+          color: red;
         }
       `}</style>
     </form>
