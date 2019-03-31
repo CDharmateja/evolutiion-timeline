@@ -1,19 +1,8 @@
 import React from 'react'
 import {withRouter} from 'next/router'
-// import dynamic from 'next/dynamic'
 
 import Layout from '../components/Layout'
 import treeJson from '../data/tree.json'
-
-// const DBHelper = dynamic(import('../dbhelper'), {
-//   ssr: false
-// })
-
-// (async ()=> {
-//   console.log(await DBHelper)
-// })()
-
-// console.log(DBHelper)
 
 const Timeline = withRouter(props => {
   const name = props.router.query.name
@@ -23,20 +12,31 @@ const Timeline = withRouter(props => {
 
   let list = filterByTime(details, sliderValue)
 
-  list = list.map(species => <li key={species.name}>{species.name}</li>)
+  list = list.map(species => 
+    <li key={species.name}>
+      <h2>{species.name}</h2>
+      <p>{`Age: ${species['age_mya']}`}</p>
+    </li>)
 
   return (
     <Layout>
-      <h2>{name}</h2>
-      {/* <p>Slider value is {sliderValue}</p> */}
+      <h2>{`Evolution of ${name}`}</h2>
       <ul>
         {list}
       </ul>
+      <style jsx>{`
+        ul {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+        }
+        li {
+          // list-style: none;
+        }
+      `}</style>
     </Layout>
   )
 })
-
-// function getPercentages()
 
 function filterByTime(json, [minTime, maxTime]) {
   return json.filter(species => {

@@ -1,1 +1,0 @@
-// TODO: Use Service Worker to make website offline first
