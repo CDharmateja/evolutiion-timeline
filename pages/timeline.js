@@ -19,16 +19,26 @@ const Timeline = withRouter(props => {
   const name = props.router.query.name
   const sliderValue = props.router.query.sliderValue
 
-  // console.log(getEvolutionDetails('Dog'))
+  const details = getEvolutionDetails(name)
+
+  const list = details.map(species => <li key={species.name}>{species.name}</li>)
 
   return (
     <Layout>
       <h2>{name}</h2>
-      <p>Slider value is {sliderValue}</p>
+      {/* <p>Slider value is {sliderValue}</p> */}
+      <ul>
+        {list}
+      </ul>
     </Layout>
   )
 })
 
+// function getPercentages()
+
+function filterByTime(json) {
+  
+}
 
 function getEvolutionDetails(species) {
   const json = treeJson['phyloxml']['phylogeny']['clade']
