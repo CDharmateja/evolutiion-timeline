@@ -17,11 +17,13 @@ import treeJson from '../data/tree.json'
 
 const Timeline = withRouter(props => {
   const name = props.router.query.name
-  const sliderValue = props.router.query.sliderValue
+  const sliderValue = props.router.query.sliderValue.split(',')
 
   const details = getEvolutionDetails(name)
 
-  const list = details.map(species => <li key={species.name}>{species.name}</li>)
+  let list = filterByTime(details, sliderValue)
+
+  list = list.map(species => <li key={species.name}>{species.name}</li>)
 
   return (
     <Layout>
@@ -36,8 +38,11 @@ const Timeline = withRouter(props => {
 
 // function getPercentages()
 
-function filterByTime(json) {
-  
+function filterByTime(json, [minTime, maxTime]) {
+  return json.filter(species => {
+    const age = species['age_mya']
+    return age > minTime && age < maxTime
+  })
 }
 
 function getEvolutionDetails(species) {

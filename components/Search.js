@@ -31,7 +31,7 @@ function Search() {
         <div>
           <Range
             min={0}
-            max={100}
+            max={3001}
             value={sliderValue}
             onChange={handleSliderValueChange}
           />
