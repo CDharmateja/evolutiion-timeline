@@ -8,7 +8,7 @@ import rcStyle from 'rc-slider/assets/index.css'
 const Layout = props => (
   <div className='layout-container'>
     <Head>
-      <meta charset="UTF-8" />
+      <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="description" content="See interactive timeline of different species" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
