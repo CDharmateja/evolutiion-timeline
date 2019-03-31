@@ -1,7 +1,4 @@
 import {openDB} from 'idb'
-// import dynamic from 'next/dynamic'
-
-// const {openDB} = dynamic(import('idb'))
 
 class DBHelper {
   constructor() {
@@ -10,6 +7,7 @@ class DBHelper {
 
   createDB() {
     return openDB('evolution-timeline', 1, {
+      // eslint-disable-next-line
       upgrade(db, oldVersion, newVersion, transaction) {
         /* eslint-disable */
         switch(upgradeDB.oldVersion) {
@@ -63,7 +61,7 @@ class DBHelper {
   fetchEvolutionTreeJson() {
     return new Promise(async (resolve, reject) => {
       try {
-        const url = ''
+        const url = 'https://express.cdharmateja.now.sh/'
         const resp = await fetch(url)
         const json = await resp.json()
         resolve(json)

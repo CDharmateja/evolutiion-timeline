@@ -1,19 +1,25 @@
 import React from 'react'
 import {withRouter} from 'next/router'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 
 import Layout from '../components/Layout'
+import treeJson from '../data/tree.json'
 
-const DBHelper = dynamic(import('../dbhelper'), {
-  ssr: false
-})
-// import DBHelper from '../dbhelper'
+// const DBHelper = dynamic(import('../dbhelper'), {
+//   ssr: false
+// })
 
-DBHelper
+// (async ()=> {
+//   console.log(await DBHelper)
+// })()
 
-const timeline = withRouter(props => {
+// console.log(DBHelper)
+
+const Timeline = withRouter(props => {
   const name = props.router.query.name
   const sliderValue = props.router.query.sliderValue
+
+  // console.log(getEvolutionDetails('Dog'))
 
   return (
     <Layout>
@@ -23,4 +29,35 @@ const timeline = withRouter(props => {
   )
 })
 
-export default timeline
+
+function getEvolutionDetails(species) {
+  const json = treeJson['phyloxml']['phylogeny']['clade']
+  
+  const result = searchTree(json[0], species)
+  result.push(json[0])
+
+  const filteredResult = result.filter(clade => clade.name !== 'unnamed node')
+  
+  return filteredResult
+}
+
+function searchTree(element, matchingName){
+  if(element.name == matchingName){
+    return []
+  }else if (element.clade != null){
+    var i
+    var result = null
+    let count = 0
+    for(i=0; result == null && i < element.clade.length; i++){
+      count += 1 
+      result = searchTree(element.clade[i], matchingName)
+    }
+    if (result !== null) {
+      result.push(element.clade[count-1])
+    }
+    return result
+  }
+  return null
+}
+
+export default Timeline
