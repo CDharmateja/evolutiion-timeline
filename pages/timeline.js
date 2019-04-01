@@ -41,7 +41,7 @@ const Timeline = withRouter(props => {
     <li key={species.name}>
       <h3>{species.name}</h3>
       {getImageJsx(species.name)}
-      <p>{`Age: ${species['age_mya']}`}</p>
+      <p>{`Age (million years): ${species['age_mya']}`}</p>
     </li>)
 
   const imageJsx = getImageJsx(name)

@@ -31,7 +31,7 @@ function Search() {
     <form onSubmit={handleSubmit} className="search">
       <div>
         <label htmlFor="species-choice">
-          <strong>Choose a species:</strong>
+          <strong>Choose species</strong>
         </label>
         <input list="species"
           id="species-choice"
