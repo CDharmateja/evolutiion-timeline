@@ -7,6 +7,7 @@ import species from '../species'
 function Search() {
   const [name, handleNameChange] = useFormInput('')
   const [errorMsg, setErrorMessage] = useState('')
+  const [invalidSpecies, setInvalidSpecies] = useState('')
 
   const [sliderValue, handleSliderValueChange] = useState([0, 3001])
 
@@ -19,6 +20,8 @@ function Search() {
 
     if (name === '') {
       setErrorMessage('All fields are required')
+    } else if (!(name in species)) {
+      setInvalidSpecies('Please select the species name from the given list')
     } else {
       setErrorMessage('')
       Router.push(`/timeline?name=${name}&sliderValue=${sliderValue}`)
@@ -40,6 +43,7 @@ function Search() {
         <datalist id="species">
           {speciesOptions}
         </datalist>
+        <div className="error">{invalidSpecies}</div>
       </div>
       <div className="slider">
         <label htmlFor="range-slider">
