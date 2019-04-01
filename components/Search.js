@@ -20,10 +20,9 @@ function Search() {
 
     if (name === '') {
       setErrorMessage('All fields are required')
-    } else if (!(name in species)) {
+    } else if (!species.includes(name)) {
       setInvalidSpecies('Please select the species name from the given list')
     } else {
-      setErrorMessage('')
       Router.push(`/timeline?name=${name}&sliderValue=${sliderValue}`)
     }
   }

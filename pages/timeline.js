@@ -30,11 +30,6 @@ const Timeline = withRouter(props => {
           flex-direction: column;
           list-style: none;
         }
-
-        li {
-          // color: red;
-          // background-color: white;
-        }
       `}</style>
     </Layout>
   )
