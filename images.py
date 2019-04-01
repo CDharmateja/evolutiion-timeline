@@ -21,4 +21,4 @@ url = 'http://wellcometreeoflife.org'
 
 for i in range(n):
     print('Downloading', text[i])
-    open('../images/'+text[i], 'wb').write(requests.get(url+links[i]).content)
+    open('images/'+text[i]+'.jpg', 'wb').write(requests.get(url+links[i]).content)
