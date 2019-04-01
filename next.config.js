@@ -1,7 +1,4 @@
 /* eslint-disable */
-const withPlugins = require('next-compose-plugins')
-const withImages = require('next-images')
-
 const withOffline = require('next-offline')
 
 const nextConfig = {
@@ -27,6 +24,6 @@ const nextConfig = {
   },
 }
 
-module.exports = withPlugins([withImages, withOffline(nextConfig), {
+module.exports = withPlugins([withOffline(nextConfig)], {
   target: 'serverless'
-}])
+})

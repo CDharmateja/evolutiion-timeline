@@ -101,7 +101,7 @@ function getImageJsx(name) {
   let imageJsx = ''
   if (image) {
     // eslint-disable-next-line
-    const imageSrc = require(`../images/${image}`)
+    const imageSrc = `../static/images/${image}`
     imageJsx = <img src={imageSrc} />
   }
   return imageJsx
