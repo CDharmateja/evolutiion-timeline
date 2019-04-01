@@ -12,19 +12,29 @@ const Timeline = withRouter(props => {
 
   let list = filterByTime(details, sliderValue)
 
+  const speciesDetails = list[0]
+
+  let jsx = ''
+  if (parseInt(speciesDetails['age_mya']) == 0) {
+    jsx = <div>{`${speciesDetails['name']} can be seen in the real world.`}</div>
+  } else {
+    jsx = <div>{`${speciesDetails['name']} was there ${speciesDetails['age_mya']} million years ago`}</div>
+  }
+  list = list.slice(1,)
+
+  let previousFormJsx = ''
+  if (list !== []) {
+    previousFormJsx = <strong>{`Here are the ${name}'s previous forms`}</strong>
+  }
+
   list = list.map(species => 
     <li key={species.name}>
       <h3>{species.name}</h3>
+      {getImageJsx(species.name)}
       <p>{`Age: ${species['age_mya']}`}</p>
     </li>)
 
-  const image = getImageOfSpecies(name)
-  let imageJsx = ''
-  if (image) {
-    // eslint-disable-next-line
-    const imageSrc = require(`../images/${image}`)
-    imageJsx = <img src={imageSrc} />
-  }
+  const imageJsx = getImageJsx(name)
 
   return (
     <Layout>
@@ -32,16 +42,23 @@ const Timeline = withRouter(props => {
       <div className="image">
         {imageJsx}
       </div>
+      <div className="details">
+        {jsx}
+      </div>
+      <div className="previous-form">{previousFormJsx}</div>
       <ul>
         {list}
       </ul>
       <style jsx>{`
+        .previous-form {
+          margin-top: 20px;
+        }
         ul {
           display: flex;
           flex-direction: column;
           list-style: none;
         }
-        .image {
+        .image, .details, .previous-form {
           display: flex;
           justify-content: center;
         }
@@ -67,6 +84,17 @@ function getImageOfSpecies(name) {
   }
 
   return false
+}
+
+function getImageJsx(name) {
+  const image = getImageOfSpecies(name)
+  let imageJsx = ''
+  if (image) {
+    // eslint-disable-next-line
+    const imageSrc = require(`../images/${image}`)
+    imageJsx = <img src={imageSrc} />
+  }
+  return imageJsx
 }
 
 function getEvolutionDetails(species) {
