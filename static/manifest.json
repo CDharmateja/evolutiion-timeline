@@ -1,0 +1,21 @@
+{
+  "short_name": "Evolution",
+  "name": "Evolution Timeline",
+  "icons": [
+    {
+      "src": "earth192.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "earth512.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#ededeb",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#00ff00"
+}

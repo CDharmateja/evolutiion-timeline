@@ -12,7 +12,10 @@ const Layout = props => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="description" content="See interactive timeline of different species" />
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+      <meta name="theme-color" content="#00ff00" />
       <title>Evolution Timeline</title>
+      <link rel="shortcut icon" href="/static/favicon.ico"></link>
+      <link rel="manifest" href="/static/manifest.json"/>
       <style>
         {rcStyle.replace(/[ \n]/g,'')}
       </style>
