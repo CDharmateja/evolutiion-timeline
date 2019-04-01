@@ -10,7 +10,7 @@ const nextConfig = {
         urlPattern: /^https?.*/,
         handler: 'networkFirst',
         options: {
-          cacheName: 'https-calls',
+          cacheName: 'evolution',
           networkTimeoutSeconds: 15,
           expiration: {
             maxEntries: 150,
