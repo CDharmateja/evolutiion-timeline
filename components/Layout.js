@@ -14,7 +14,7 @@ const Layout = props => (
       <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       <title>Evolution Timeline</title>
       <style>
-        {rcStyle}
+        {rcStyle.replace(/[ \n]/g,'')}
       </style>
     </Head>
 
