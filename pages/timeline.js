@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import {withRouter} from 'next/router'
 
 import Layout from '../components/Layout'
@@ -11,6 +12,15 @@ const Timeline = withRouter(props => {
   const details = getEvolutionDetails(name)
 
   let list = filterByTime(details, sliderValue)
+
+  if (list.length === 0){
+    return (
+      <Layout>
+        <div>This species doesnt exist in this timeline</div>
+        <Link href="/"><a>Go back</a></Link>
+      </Layout>
+    )
+  }
 
   const speciesDetails = list[0]
 
